@@ -32,5 +32,8 @@ const myObject = {
 
 
 //for (const[key,value] of myObject)
- //  console.log(key) ;//gives myObject is not Iterable
+ //  console.log(key) ;
+ // 
+ //gives myObject is not Iterable  so we have to use for in loop other than for of loop
 
+// so for objets we use for of loop
