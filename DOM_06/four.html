@@ -18,22 +18,22 @@
     
 </body>
 <script>
-     function addLanguage(langName){
-         const li = document.createElement('li')
-         li.innerHTML = `${langName}`
-         document.querySelector('.language').
-         appendChild(li)
+      function addLanguage(langName){
+          const li = document.createElement('li')
+          li.innerHTML = `${langName}`
+          document.querySelector('.language').
+          appendChild(li)
 
+      }
+     addLanguage("python") // pyhon
+
+
+     function addOptiLanguage(langName){
+         const li = document.createElement('li');
+         li.appendChild(document.createTextNode(langName))
+         document.querySelector('.language').appendChild(li)
      }
-    addLanguage("python") // pyhon
-
-
-    function addOptiLanguage(langName){
-        const li = document.createElement('li');
-        li.appendChild(document.createTextNode(langName))
-        document.querySelector('.language').appendChild(li)
-    }
-    addOptiLanguage('golang') // golang
+     addOptiLanguage('golang') // golang
 
     // 2. Edit
      const secondLang = document.querySelector('li:nth-child(2)')
@@ -49,7 +49,7 @@
     // Remove
     const lastLang = document.querySelector('li:last-child')
     lastLang.remove() // so here lang which is in last i.e golang removes
-    
+
 
 
 
