@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits </title>
+</head>
+<body>
+    <h2> FRUITS </h2>
+    <div> 
+        <ul id = "image">
+            <li> <img src="https://th.bing.com/th/id/OIP.5WCWUri2GZEUEy-Xv2rw3gAAAA?w=255&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image 1" width="200" id="image1" height="150" 
+                > </li>
+            <li> <img src="https://th.bing.com/th/id/OIP.vAGIo1c8v_JJL93y_6GmDQHaEo?w=267&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image 2" width="200"id="image2" height="150" 
+                onmouseover="this.style.border='5px solid red';" 
+                onmouseout="this.style.border='';"> </li>
+            <li> <a href="https://google.com" id ="google">Google</a></li>    
+               
+        </ul>
+    </div>
+    
+</body> 
+<script>
+
+  //onclick="alert('You clicked on Image 1!')(line 13)
+  // in line 13 we used there on click methode to alert ...someting...so thats not safe for production
+  // we have one more methode i.e 
+  //document.getElementById("image1").onclick = function() {alert("You clicked on Image 1!")};
+  //so that this is also not that much safe for production , we have one more methode i.e addEventListener
+  // document.getElementById("image1").addEventListener("click", function() {alert("You clicked on Image 1!")});
+  //document.getElementById("image1").addEventListener("click", function(e) {console.log(e);});
+
+  //so here we study about event object
+
+  //attachEvent - this is old methode
+  // jQuery - .0n(instead of writing .get we write .0n)
+
+  //type , timestamp , target, currentTarget, preventDefault(), toElement,srcE;lement, stopPropagation()
+  //clientX, clientY, pageX, pageY, screenX, screenY
+  //altKey, ctrlKey, shiftKey, button, buttons, detail
+
+  //Event Propogation
+    //1. Event Bubbling - default( third parameter false ,more in market standard)
+    //2. Event Capturing - by setting third parameter true
+
+    // in below two event listener if we click on image1 first the image1 event listener will be triggered
+    // then the ul event listener will be triggered this is called event bubbling
+
+
+
+   // document.getElementById("image").addEventListener("click", function(e) {console.log(" clicked inside the ul");},false);
+   // document.getElementById("image1").addEventListener("click", function(e) {console.log(" fruit clicked inside the ul");},false);
+   // so here we have two event listener one is for ul and one is for image1, whwn we click on image1 both event listener will be triggered,when we click on image2 only ul event listener will be triggered
+     //document.getElementById("image").addEventListener("click", function(e) {console.log(" clicked inside the ul");},false);
+     //document.getElementById("image1").addEventListener("click", function(e) {console.log(" fruit clicked inside the ul")
+       // e.stopPropagation();
+     //},false);
+   // here we have used stopPropagation methode so when we click on image1 only image1 event listener will be triggered not the ul event listener
+
+
+     //document.getElementById("google").addEventListener("click", function(e) {
+       // e.preventDefault(); // open console and than click on google link you will see "default behaviour prevented" , " clicked inside the ul " and google page will not open,to open google page remove this line,and click on google link again
+        //e.stopPropagation();-- this will stop the event propagation (only shows only " default behaviour prevented ") this is called as event bubbling
+       
+        //console.log(" default behaviour prevented");
+    //},false);
+
+     //document.querySelector('#image').addEventListener("click", function(e) {
+       // console.log(e.target.parentNode);
+      //let removeItem = e.target.parentNode
+       //removeItem.remove()...from here we can remove the clicked image
+       //or we can do like this  
+       //removeItem.parentNode.removeChild(removeItem);
+       //})
+
+       // so here after clicking on any image it will be removed from the list, also  if we mistakely click on alingnment space like in white background or near to that google ...it will remove the entire ul i.e all images and google link
+       // so to barrier that we can do like this
+
+       document.querySelector('#image').addEventListener("click", function(e) {
+          console.log(e.target.tagName);
+          if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeItem = e.target.parentNode
+            removeItem.parentNode.removeChild(removeItem);
+          }
+        })
+</script>
+</html>
