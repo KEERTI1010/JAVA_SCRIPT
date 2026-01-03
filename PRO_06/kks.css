@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.clock-container {
+  background: #111827;
+  padding: 35px;
+  border-radius: 20px;
+  width: 380px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+#clock {
+  font-size: 42px;
+  margin-bottom: 25px;
+  color: #38bdf8;
+}
+
+.alarm-set {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#setAlarm {
+  background: #22c55e;
+  color: black;
+}
+
+#stopAlarm {
+  background: #ef4444;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#status {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #cbd5f5;
+}
