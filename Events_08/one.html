@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO</title>
+</head>
+<body>
+    <h1>PROJECT 05</h1>
+    <button id="stop">Stop</button>
+</body>
+<script> 
+    setTimeout(function(){console.log("Hello after 3 seconds")}, 3000);
+    // here at console, after 3 seconds, "Hello after 3 seconds" will be printed
+
+    // const sayHello = () => {
+    //     console.log("Hello after 5 seconds");
+    // }
+    // setTimeout(sayHello, 5000);
+    // // here at console, after 5 seconds, "Hello after 5 seconds" will be printed
+
+    // const changeText = () => {
+    //     document.querySelector("h1").innerHTML = "YES ITS PRO 05";
+    // }  
+    // setTimeout(changeText, 2000);
+    // here after 7 seconds, the text of h1 will be changed to "YES ITS PRO 05"...in screern only (not in console) 
+
+     const changeText = () => {
+         document.querySelector("h1").innerHTML = "YES ITS PRO 05";
+     }  
+     const changeme=setTimeout(changeText, 5000);
+    //clearTimeout(changeme);
+    // here after 2 seconds, the text of h1 will NOT be changed to "(that changing feature is stopped)" because we have used clearTimeout() method to stop that feature.
+    // so by doing this no fyda hoga...that why we have added a button to stop that feature on click of that button.
+
+        document.querySelector("#stop").addEventListener("click", function(){
+        clearTimeout(changeme)
+        console.log("You have stopped the changing feature");
+    });
+
+
+
+</script>
+    
+</html>
