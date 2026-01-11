@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    requesturl="https://jsonplaceholder.typicode.com/posts/1"
+    const xhr = new XMLHttpRequest();
+    xhr.open ('GET', requesturl, );
+   // console.log(xhr.readyState);//1
+
+   // now to track continously the state of request
+    xhr.onreadystatechange = function () {
+         console.log (xhr.readyState);//2 3 4 
+         if (xhr.readyState === 4) {
+            const data = this.responseText;
+            console.log (data);// GIVES all the data in string format(id,userId,titile etc)
+            console.log(data.id);//undefined
+            console.log (typeof data);//string
+
+            // to convert string data to json object
+            const responseobj = JSON.parse (data);
+            console.log (typeof responseobj);//object
+            console.log (responseobj);// gives all data in object format
+            console.log (responseobj.id);//1
+            console.log (typeof responseobj);//object
+         }
+    };
+
+    xhr.send ();
+
+</script>
+</html>
